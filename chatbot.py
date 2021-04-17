@@ -64,6 +64,7 @@ def echo(update, context):
     #print(data.decode("utf-8"))
     print(update.message.text)
     print(update.message.text.replace(" ","%20"))
+    print(data.decode("utf-8"))
 
     print(problem)
     reply_message=data.decode("utf-8")
@@ -74,7 +75,7 @@ def echo(update, context):
 # context. Error handlers also receive the raised TelegramError object in error.
 def help_command(update: Update, context: CallbackContext) -> None:
     """Send a message when the command /help is issued."""
-    update.message.reply_text('This chatbot will help you to calculate how many calories you eat each meal./meat XXX(grams), /vegetebles XXX(grams), /fruites XXX(grams), /carbohydrates XXX(grams), /show will show how many calories you eat, /reset will reset your records')
+    update.message.reply_text('This chatbot will help you to calculate how many calories you eat each meal. You can type questions into this chatbot and it will simply answer your questions, for example you can type "how much vitamin C in 2 apples" and it will respond you./meat XXX(grams), /vegetebles XXX(grams), /fruites XXX(grams), /carbohydrates XXX(grams), /show will show how many calories you eat, /reset will reset your records')
 
 def kevin_command(update: Update, context: CallbackContext) -> None:
     """Send a message when the command /hello Kevin is issued."""
