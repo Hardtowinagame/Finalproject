@@ -75,23 +75,23 @@ def echo(update, context):
 # context. Error handlers also receive the raised TelegramError object in error.
 def help_command(update: Update, context: CallbackContext) -> None:
     """Send a message when the command /help is issued."""
-    update.message.reply_text('This chatbot will help you to calculate how many calories you eat each meal. You can type questions into this chatbot and it will simply answer your questions, for example you can type "how much vitamin C in 2 apples" and it will respond you./meat XXX(grams), /vegetebles XXX(grams), /fruites XXX(grams), /carbohydrates XXX(grams), /show will show how many calories you eat, /reset will reset your records')
+    update.message.reply_text('This chatbot will answer some simple questions. You can type questions into this chatbot and it will simply answer your questions, for example you can type "how much vitamin C in 2 apples" and it will respond you.')
 
-def kevin_command(update: Update, context: CallbackContext) -> None:
-    """Send a message when the command /hello Kevin is issued."""
-    update.message.reply_text('Good day, Kevin!')
+#def kevin_command(update: Update, context: CallbackContext) -> None:
+#    """Send a message when the command /hello Kevin is issued."""
+#    update.message.reply_text('Good day, Kevin!')
 
 
-def add(update: Update, context: CallbackContext) -> None:
-    """Send a message when the command /add is issued."""
-    try: 
-        global redis1
-        logging.info(context.args[0])
-        msg = context.args[0]   # /add keyword <-- this should store the keyword
-        redis1.incr(msg)
-        update.message.reply_text('You have said ' + msg +  ' for ' + redis1.get(msg).decode('UTF-8') + ' times.')
-    except (IndexError, ValueError):
-        update.message.reply_text('Usage: /add <keyword>')
+#def add(update: Update, context: CallbackContext) -> None:
+#    """Send a message when the command /add is issued."""
+#    try: 
+#        global redis1
+#        logging.info(context.args[0])
+#        msg = context.args[0]   # /add keyword <-- this should store the keyword
+#        redis1.incr(msg)
+#        update.message.reply_text('You have said ' + msg +  ' for ' + redis1.get(msg).decode('UTF-8') + ' times.')
+#    except (IndexError, ValueError):
+#        update.message.reply_text('Usage: /add <keyword>')
 
 
 
