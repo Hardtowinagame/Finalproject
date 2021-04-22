@@ -14,11 +14,11 @@ def main():
     
     config = configparser.ConfigParser()
     config.read('config.ini')
-    updater = Updater(token=(os.environ['ACCESS_TOKEN']), use_context=True)
+    updater = Updater(token=(os.environ[ACCESS_TOKEN]), use_context=True)
     dispatcher = updater.dispatcher
 
     global redis1
-    redis1 = redis.Redis(host=(os.environ['HOST']), password=(os.environ['PASSWORD']), port=(os.environ['REDISPORT']))
+#    redis1 = redis.Redis(host=(os.environ['HOST']), password=(os.environ['PASSWORD']), port=(os.environ['REDISPORT']))
 
     # You can set this logging module, so you will know when and why things do not work as expected
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -67,8 +67,16 @@ def echo(update, context):
     print(data.decode("utf-8"))
 
     print(problem)
+
+
     reply_message=data.decode("utf-8")
-    context.bot.send_message(chat_id=update.effective_chat.id, text= reply_message)
+    print(reply_message)
+    if reply_message == "{}":
+        context.bot.send_message(chat_id=update.effective_chat.id, text= "There may be some typo in question or this chatbot cannot handle it")
+    else:
+        context.bot.send_message(chat_id=update.effective_chat.id, text= reply_message)
+    
+    
 
 
 # Define a few command handlers. These usually take the two arguments update and
